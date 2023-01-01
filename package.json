@@ -1,0 +1,17 @@
+{
+  "name": "ehentai-downloader",
+  "version": "1.0.0",
+  "main": "download.js",
+  "author": "lifegpc <g1710431395@gmail.com>",
+  "license": "GPL-3.0+",
+  "dependencies": {
+    "getopts": "^2.3.0",
+    "http-proxy-agent": "^5.0.0",
+    "jsdom": "^20.0.3",
+    "node-fetch": "^3.3.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node ./download.js"
+  }
+}
