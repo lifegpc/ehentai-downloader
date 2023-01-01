@@ -11,6 +11,7 @@ function show_help() {
     console.log("  -h, --help           Show this help");
     console.log("  -c, --config <PATH>  Specify config file path.");
     console.log("  --original           Download original image.");
+    console.log("  -s, --single         Just downlad single picture not whole gallery.");
     process.exit(0);
 }
 
@@ -32,6 +33,7 @@ async function download() {
                 }
             }
             await downloadCur(data);
+            if (options.single) continue;
             let cur = data;
             while (true) {
                 cur = await cur.prevPage();
@@ -52,8 +54,9 @@ const options = getopts(process.argv.slice(2), {
     alias: {
         config: ["c"],
         help: ["h"],
+        single: ["s"],
     },
-    boolean: ["help", "original"],
+    boolean: ["help", "original", "single"],
     default: {
         config: "./config.json"
     },
